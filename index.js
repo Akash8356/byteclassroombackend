@@ -13,19 +13,25 @@ const StudentRoute = require('./byteClassroom/student/views/StudentRegistration'
 
 // establishing database connection
 // MongoDB connection URI
-const MONGODB_URI = process.env.PORT||'mongodb://localhost:27017/testDB';
+const MONGODB_URI = process.env.MONGODB_URI||'mongodb://localhost:27017/testDB';
+console.log('mongo db url=====',MONGODB_URI)
 // Connect to MongoDB
+// mongoose.connect(MONGODB_URI, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+// const dbConnection = mongoose.connection
+// Connection events
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 50000, // Keep trying to send operations for 5 seconds
+
 })
-const dbConnection = mongoose.connection
-// Connection events
-dbConnection.on('error', (error) => console.error('Connection error:', error));
-dbConnection.once('open', () => {console.log('Connected to MongoDB');
-});
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 // Export the db connection
-module.exports =  {dbConnection} ;
+// module.exports =  {dbConnection} ;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
