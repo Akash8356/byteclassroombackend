@@ -4,6 +4,7 @@
   "description": "this is lms node service for backend.",
   "main": "index.js",
   "scripts": {
+    "build": "react-scripts build",
     "start":"npm run server",
     "server": "nodemon index.js",
     "client": "npm start --prefix client",
