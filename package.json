@@ -2,10 +2,10 @@
   "name": "leaningnodewithreact",
   "version": "1.0.0",
   "description": "this is lms node service for backend.",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start":"npm run server",
-    "server": "nodemon server.js",
+    "server": "nodemon index.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\""
   },
