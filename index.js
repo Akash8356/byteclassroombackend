@@ -30,5 +30,5 @@ app.listen(PORT, () => {
 });
 app.use('/api/student',StudentRoute)
 app.get("/", (req, res) => {
-  res.json({message:"App is running.."});
+  res.json({message:"App is running..111"});
 });
