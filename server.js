@@ -12,8 +12,7 @@ const StudentRoute = require('./byteClassroom/student/views/StudentRegistration'
 
 // establishing database connection
 // MongoDB connection URI
-const MONGODB_URI = 'mongodb://localhost:27017/testDB'; // Replace with your MongoDB Atlas URI if using Atlas
-
+const MONGODB_URI = process.env.PORT||'mongodb://localhost:27017/testDB';
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
@@ -29,5 +28,7 @@ module.exports =  {dbConnection} ;
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
-
 app.use('/api/student',StudentRoute)
+app.get("/", (req, res) => {
+  res.json({message:"App is running.."});
+});
