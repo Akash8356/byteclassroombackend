@@ -4,6 +4,7 @@
   "description": "this is lms node service for backend.",
   "main": "server.js",
   "scripts": {
+    "start":"npm run server",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\""
